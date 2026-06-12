@@ -1,0 +1,175 @@
+/* ==========================================================================
+   📌 1. 全域排版與自訂底圖設定
+   ========================================================================== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", "Microsoft JhengHei", sans-serif;
+    
+    /* 載入你的專屬底圖 bg_84.jpg */
+    background-image: url('bg_84.jpg'); 
+    background-size: cover;                /* 讓圖片自動縮放填滿整個螢幕 */
+    background-position: center;           /* 讓圖片置中對齊 */
+    background-repeat: no-repeat;          /* 防止背景圖片重複平鋪 */
+    background-attachment: fixed;          /* 讓背景固定，網頁捲動時底圖不會跟著動 */
+    
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    color: #1a1414;                        /* 依需求調整的全域深咖啡色字 */
+}
+
+/* 主卡片容器 */
+.container {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   ✨ 2. 大頭貼上方個人資訊文字排版 (仿 image_797f7a.png)
+   ========================================================================== */
+.user-intro-top {
+    margin-top: 20px;
+    margin-bottom: 15px; /* 與下方大頭貼的距離 */
+}
+
+.intro-name {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #000000;      /* 純黑色的 zjx. */
+    margin: 0 0 8px 0;
+    letter-spacing: 0.5px;
+}
+
+.intro-stats {
+    font-size: 1.05rem;
+    color: #1a1414;      /* 副標題資訊文字 */
+    margin: 0;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   📌 3. 大頭貼與標籤、簡介元件
+   ========================================================================== */
+.avatar {
+    width: 95px;
+    height: 95px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #000000;           /* 黑色粗邊大頭貼框 */
+    margin: 10px 0;
+}
+
+.tags-container {
+    margin: 12px 0;
+}
+
+.badge {
+    background-color: #000000;           /* 黑底白字的影音/圖文創作標籤 */
+    color: #ffffff;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    margin: 0 4px;
+    font-weight: bold;
+}
+
+.bio {
+    font-size: 1rem;
+    color: #1a1414;
+    margin: 10px 0 35px 0;
+    font-weight: 500;
+}
+
+/* ==========================================================================
+   ✨ 4. 核心：仿 image_79d915.png 粗黑框立體彈跳按鈕
+   ========================================================================== */
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;                             /* 按鈕與按鈕之間的垂直間距 */
+}
+
+.link-item {
+    display: flex;
+    justify-content: space-between;        /* 文字與小標示靠左、箭頭靠右 */
+    align-items: center;
+    background-color: #ffffff;             /* 按鈕本體純白 */
+    color: #000000;                        /* 文字純黑 */
+    text-decoration: none;
+    padding: 14px 24px;                    /* 內襯上下左右間距 */
+    
+    /* 黑色粗外框與膠囊圓弧形狀 */
+    border: 3px solid #000000; 
+    border-radius: 50px;       
+    
+    font-size: 1.1rem;
+    font-weight: bold;
+    position: relative;
+    
+    /* 漫畫風的立體實心陰影 (向右下偏移 4px) */
+    box-shadow: 4px 4px 0px #000000; 
+    transition: all 0.1s ease-in-out;      /* 超流暢的點擊回饋過渡 */
+}
+
+/* 按鈕內左側對齊 */
+.link-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;                             /* 小標示與文字的距離 */
+}
+
+/* 📌 完美還原：圓圈黑底、白線條官方社群小標示 (仿 image_797b39.png) */
+.brand-icon {
+    font-size: 1.3rem;
+    width: 32px;
+    height: 32px;
+    background-color: #000000;             /* 純黑圓底 */
+    color: #ffffff;                        /* 白色官方標示符號 */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;                    /* 裁切成正圓 */
+    box-sizing: border-box;
+}
+
+/* 📌 小紅書專用獨立圖片標示 */
+.brand-img-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;                    /* 裁切成正圓 */
+    object-fit: cover;
+}
+
+/* 右側小箭頭 */
+.arrow-icon {
+    font-size: 1rem;
+    color: #000000;
+}
+
+/* 按鈕滑鼠懸停效果：讓按鈕稍微往左上浮起、陰影變厚 */
+.link-item:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #000000;
+}
+
+/* 按鈕點擊效果：按鈕往右下壓入 4px、陰影歸零，製造彈簧般的立體按壓感 */
+.link-item:active {
+    transform: translate(4px, 4px);
+    box-shadow: 0px 0px 0px #000000;
+}
+
+/* ==========================================================================
+   📌 5. 頁尾樣式
+   ========================================================================== */
+.footer {
+    margin-top: 50px;
+    font-size: 0.85rem;
+    color: #554c4c;
+    font-weight: bold;
+}
